@@ -4,30 +4,24 @@ public class Radio {
 
     private int currentStation;
     private int currentVolume;
-    private int maxStation = 9;
+    private int totalStations = 10;
+    private int maxStation = totalStations - 1;
     private int minStation = 0;
     private int maxVolume = 100;
     private int minVolume = 0;
-    private int quantity = 10; //общее количество станций
 
     public Radio() {
     }
 
-    public Radio(int currentStation, int maxStation, int minStation, int quantity) {
-        this.currentStation = currentStation;
-        this.maxStation = maxStation;
-        this.minStation = minStation;
-        this.quantity = quantity;
+    public Radio(int totalStations) {
+        this.totalStations = totalStations;
+        maxStation = totalStations - 1;
     }
 
     public Radio(int currentVolume, int maxVolume, int minVolume) {
         this.currentVolume = currentVolume;
         this.maxVolume = maxVolume;
         this.minVolume = minVolume;
-    }
-
-    public Radio(int quantity) {
-        this.quantity = quantity;
     }
 
     public int getCurrentStation() {
@@ -66,7 +60,6 @@ public class Radio {
 
     public void setCurrentVolume(int newVolume) {
 
-
         if (newVolume >= maxVolume) {
             this.currentVolume = maxVolume;
         } else if (newVolume <= minVolume) {
@@ -74,10 +67,6 @@ public class Radio {
         } else {
             this.currentVolume = newVolume;
         }
-    }
-
-    public int getQuantity() {
-        return quantity;
     }
 }
 
